@@ -17,15 +17,15 @@ This project aims to classify stock market sentiments from Twitter comments into
 - Ensure access to necessary libraries:
   ```python
   !pip install pandas numpy gensim transformers scikit-learn nltk
-  
-2. Load the Dataset
+  ```
+### 2. Load the Dataset
   ```python
   import pandas as pd
   url = "stockmarket_sentiment_dataset.csv"
   data = pd.read_csv(url)
   ```
 
-3. Data Preprocessing
+### 3. Data Preprocessing
   ```python
   Clean and preprocess the tweet text by removing URLs, special characters, and stop words.
 
@@ -43,8 +43,8 @@ This project aims to classify stock market sentiments from Twitter comments into
       return text
   
   data['cleaned_text'] = data['tweet_text'].apply(clean_text)
-
-4. Word2Vec Model
+  ```
+### 4. Word2Vec Model
   ```python
   Train a Word2Vec model on the cleaned text.
   
@@ -52,8 +52,8 @@ This project aims to classify stock market sentiments from Twitter comments into
   
   sentences = [tweet.split() for tweet in data['cleaned_text']]
   model_w2v = Word2Vec(sentences, vector_size=100, window=5, min_count=1, workers=4)
-
-5. BERT Model
+  ```
+### 5. BERT Model
 Use a pre-trained BERT model for sentiment classification.
   ```python
   from transformers import BertTokenizer, BertForSequenceClassification
@@ -76,23 +76,23 @@ Use a pre-trained BERT model for sentiment classification.
               'attention_mask': encoding['attention_mask'].flatten(),
               'labels': torch.tensor(self.labels[idx], dtype=torch.long)
           }
-
-# Prepare dataset and dataloaders
+  ```
+Prepare dataset and dataloaders
   ```python
   dataset = SentimentDataset(data['cleaned_text'].tolist(), data['sentiment'].tolist())
   dataloader = DataLoader(dataset, batch_size=16, shuffle=True)
   
   model_bert = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=2)
-
-6. Model Training and Evaluation
+  ```
+### 6. Model Training and Evaluation
 Train both models and evaluate their performance using metrics such as accuracy, precision, recall, and F1-score.
   ```python
   from sklearn.metrics import classification_report
   
   # Train and evaluate Word2Vec model
   # Train and evaluate BERT model
-
-7. Comparison of Results
+  ```
+### 7. Comparison of Results
 Compare the performance of both models based on evaluation metrics.
   ```python
 # Print results for both models
@@ -101,7 +101,7 @@ Compare the performance of both models based on evaluation metrics.
   
   print("BERT Model Results: ")
   print(classification_report(y_true, y_pred_bert))
-
+  ```
 # Conclusion
 This project analyzes and classifies sentiments from stock market tweets using two different models. The comparison of Word2Vec and BERT will provide insights into their effectiveness in sentiment analysis tasks.
 
