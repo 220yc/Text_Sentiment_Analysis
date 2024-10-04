@@ -17,14 +17,15 @@ This project aims to classify stock market sentiments from Twitter comments into
 - Ensure access to necessary libraries:
   ```python
   !pip install pandas numpy gensim transformers scikit-learn nltk
+  
 2. Load the Dataset
-
+  ```python
 import pandas as pd
-
-# Load the dataset
 url = "stockmarket_sentiment_dataset.csv"
 data = pd.read_csv(url)
+
 3. Data Preprocessing
+  ```python
 Clean and preprocess the tweet text by removing URLs, special characters, and stop words.
 
 import re
