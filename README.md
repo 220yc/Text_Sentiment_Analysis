@@ -23,6 +23,7 @@ This project aims to classify stock market sentiments from Twitter comments into
   import pandas as pd
   url = "stockmarket_sentiment_dataset.csv"
   data = pd.read_csv(url)
+  ```
 
 3. Data Preprocessing
   ```python
