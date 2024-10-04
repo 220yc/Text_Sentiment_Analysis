@@ -15,6 +15,7 @@ This project aims to classify stock market sentiments from Twitter comments into
 ### 1. Set Up Google Colab
 - Create a new notebook in Google Colab.
 - Ensure access to necessary libraries:
+
   ```python
   !pip install pandas numpy gensim transformers scikit-learn nltk
   ```
