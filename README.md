@@ -1,5 +1,5 @@
 # Text_Sentiment_Analysis
-Stock-Market Sentiment Dataset for Twitter Stock News Classification
+Stock-Market Sentiment Dataset for Twitter Stock News Classification 🔎
 
 # 📊 Text Sentiment Analysis: Stock-Market Sentiment Dataset
 
